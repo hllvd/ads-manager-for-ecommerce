@@ -1,0 +1,25 @@
+{
+  "name": "data-conductor",
+  "version": "1.0.0",
+  "description": "Handle all webservices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index.js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/persistence/db.json",
+      "public"
+    ]
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lowdb": "^5.0.5",
+    "nodemon": "^2.0.20",
+    "typed-model": "^5.0.0"
+  }
+}

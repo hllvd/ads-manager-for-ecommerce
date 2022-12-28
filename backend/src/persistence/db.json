@@ -1,0 +1,22 @@
+{
+  "businesses": {
+    "data": [
+      {
+        "name": "ultimo55",
+        "description": "last",
+        "id": 0
+      },
+      {
+        "name": "last 6",
+        "description": "last",
+        "id": 1
+      },
+      {
+        "name": "last 7",
+        "description": "last",
+        "id": 2
+      }
+    ],
+    "_nextId": 3
+  }
+}
