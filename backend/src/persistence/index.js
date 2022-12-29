@@ -15,7 +15,6 @@ async function storageInstance(){
     // Read data from JSON file, this will set db.data content
     await db.read()
     return await db;
-
 }
 
 function prepareSchema( data, schemaName ){

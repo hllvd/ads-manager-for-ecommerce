@@ -6,11 +6,10 @@ const addNewBusiness = async (fields) => {
     const {id, data} = prepareSchema(db.data, 'businesses')
     db.data = data
     const currentObj = {...fields, id}
-    console.log("db.data.businesses.data ", db.data.businesses.data);
     db.data.businesses.data.push(currentObj)
     db.data.businesses._nextId++
-    await db.write()  
-    return await currentObj                                                                     
+    await db.write()
+    return await currentObj
 }
 
 const getBusinesses = async () => {
@@ -19,4 +18,13 @@ const getBusinesses = async () => {
     return await db.data.businesses.data                                                              
 }
 
-export default { addNewBusiness, getBusinesses } 
+const deleteBusinessFromId = async (id) => {
+    const db = await storageInstance()
+    if ( db.data?.businesses?.data == false) return false;
+    const lengthBefore = db.data.businesses.data.length;
+    db.data.businesses.data = db.data.businesses.data.filter(obj => obj.id != id)
+    await db.write()
+    return db.data.businesses.data.length < lengthBefore
+}
+
+export default { addNewBusiness, getBusinesses, deleteBusinessFromId} 
