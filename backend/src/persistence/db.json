@@ -19,21 +19,7 @@
               "description": "last",
               "websiteType": "shopify",
               "bid": "0",
-              "id": 1
-            },
-            {
-              "name": "to delete 2",
-              "description": "last",
-              "websiteType": "shopify",
-              "bid": "0",
               "id": 2
-            },
-            {
-              "name": "to delete 2",
-              "description": "last",
-              "websiteType": "shopify",
-              "bid": "0",
-              "id": 3
             }
           ],
           "_nextId": 4
