@@ -1,13 +1,11 @@
 
 import {storageInstance, prepareSchema} from "./index.js";
 
-const addNewBusiness = async (fields) => {
+const createAppend = async (fields) => {
     const db = await storageInstance()
-    const {id, data} = prepareSchema(db.data, 'businesses')
-    db.data = data
+    const {id, obj} = prepareSchema(db.data, 'businesses')
     const currentObj = {...fields, id}
     db.data.businesses.data.push(currentObj)
-    db.data.businesses._nextId++
     await db.write()
     return await currentObj
 }
@@ -27,4 +25,4 @@ const deleteBusinessFromId = async (id) => {
     return db.data.businesses.data.length < lengthBefore
 }
 
-export default { addNewBusiness, getBusinesses, deleteBusinessFromId} 
+export default { createAppend, getBusinesses, deleteBusinessFromId} 

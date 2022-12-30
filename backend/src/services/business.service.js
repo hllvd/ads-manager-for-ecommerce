@@ -1,7 +1,7 @@
 import persistence from "../persistence/business.persistence.js"
 
 const createBusiness = async ( business ) => {
-    const businessCreated = await persistence.addNewBusiness(business)
+    const businessCreated = await persistence.createAppend(business)
     return businessCreated;
 }
 
@@ -13,8 +13,8 @@ const getBusinessFromId = async (id) => {
     return businesses.filter(obj => obj.id == id).pop();
 }
 const deleteBusinessFromId = async (id) => {
-    const r = await persistence.deleteBusinessFromId(id);
-    return r
+    const resp = await persistence.deleteBusinessFromId(id);
+    return resp
 } 
 
 export default{

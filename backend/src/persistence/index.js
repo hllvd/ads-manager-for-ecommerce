@@ -17,13 +17,18 @@ async function storageInstance(){
     return await db;
 }
 
-function prepareSchema( data, schemaName ){
-    data  = data || {} 
-    data[schemaName]  = data[schemaName] || {}
-    data[schemaName].data  = data[schemaName].data || []
-    data[schemaName]._nextId  = (data[schemaName]._nextId) ? data[schemaName]._nextId : 0
-    const id = data[schemaName]._nextId
-    return {data, id}
+function prepareSchema( obj, schemaName ){
+    obj  = obj || {} 
+    obj[schemaName]  = obj[schemaName] || {}
+    obj[schemaName].data  = obj[schemaName].data || []
+    obj[schemaName]._nextId  = (obj[schemaName]._nextId) ? obj[schemaName]._nextId : 0
+    const id = obj[schemaName]._nextId
+    const _nextId = ++obj[schemaName]._nextId
+    return {obj, id, _nextId}
 }
+function incrementID(data){
+
+}
+
 
 export {storageInstance, prepareSchema} ;

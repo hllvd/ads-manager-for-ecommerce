@@ -15,14 +15,14 @@ const getBusinesses= async (_req, res, _next) => {
     res.send(business)
 } 
 const getBusinessFromId = async (req, res, _next) => {
-    const id = req.params.id
-    const business = await businessService.getBusinessFromId(id);
+    const bid = req.params.bid
+    const business = await businessService.getBusinessFromId(bid);
     res.send(business)
 }
 
 const deleteBusinessFromId = async (req, res, _next) => {
-    const id = req.params.id
-    const business = await businessService.deleteBusinessFromId(id);
+    const bid = req.params.bid
+    const business = await businessService.deleteBusinessFromId(bid);
     res.send(business)
 }
 

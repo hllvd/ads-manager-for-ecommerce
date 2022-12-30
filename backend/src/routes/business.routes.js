@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get("/", getBusinesses)
 router.post("/", createBusiness)
-router.get("/:id", getBusinessFromId)
-router.delete("/:id", deleteBusinessFromId)
+router.get("/:bid", getBusinessFromId)
+router.delete("/:bid", deleteBusinessFromId)
 
 export default router

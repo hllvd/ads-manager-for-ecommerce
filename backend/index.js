@@ -5,9 +5,16 @@ import websiteRouter from "./src/routes/website.routes.js"
 
 const app = express()
 app.use(express.json())
+app.param('bid', (req, res, next)=>{
+    req.info = req.info || {}
+    req.info.bid = req.params.bid
+    next();
+})
 
 app.use("/business", businessesRouter)
-app.use("/business/:id/website", websiteRouter)
+app.use("/business/:bid/website", websiteRouter)
+
+
 
 app.listen(3000, ()=>{
     /**

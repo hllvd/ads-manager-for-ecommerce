@@ -1,6 +1,7 @@
 import express from "express"
+import { createWebsite } from "../controllers/website.controller.js";
 
 const router = express.Router();
-router.get("/", (req,res) => res.send("ok"));
+router.post("/", createWebsite);
 
 export default router
