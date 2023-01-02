@@ -33,9 +33,9 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 export const TopMenu = (props: any) => {
-    let open = props.open
-    let toggleDrawer = props.toggledrawer
-    let drawerWidth = props.drawerwidth
+    const open = props.open
+    const toggleDrawer = props.toggledrawer
+    const drawerWidth = props.drawerwidth
     return (
         <AppBar position="absolute" open={open} drawerwidth={drawerWidth}>
             <Toolbar
