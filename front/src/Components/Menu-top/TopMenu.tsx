@@ -11,20 +11,20 @@ import IconButton from '@mui/material/IconButton';
 
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
-    drawerWidth?: any;
+    drawerwidth?: number;
 }
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open, drawerWidth }) => ({
+})<AppBarProps>(({ theme, open, drawerwidth }) => ({
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
     ...(open && {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerwidth,
+        width: `calc(100% - ${drawerwidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -34,10 +34,10 @@ const AppBar = styled(MuiAppBar, {
 
 export const TopMenu = (props: any) => {
     let open = props.open
-    let toggleDrawer = props.toggleDrawer
-    let drawerWidth = props.drawerWidth
+    let toggleDrawer = props.toggledrawer
+    let drawerWidth = props.drawerwidth
     return (
-        <AppBar position="absolute" open={open} drawerWidth={drawerWidth}>
+        <AppBar position="absolute" open={open} drawerwidth={drawerWidth}>
             <Toolbar
                 sx={{
                     pr: '24px', // keep right padding when drawer closed
