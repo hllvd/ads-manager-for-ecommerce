@@ -8,17 +8,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 
-const drawerWidth: number = 240;
+
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
+    drawerWidth?: any;
 }
-
-let open: boolean = true;
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
-    zIndex: 999999 + 1,
+})<AppBarProps>(({ theme, open, drawerWidth }) => ({
+    zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -33,12 +32,12 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-
-export function TopMenu() {
-
-
+export const TopMenu = (props: any) => {
+    let open = props.open
+    let toggleDrawer = props.toggleDrawer
+    let drawerWidth = props.drawerWidth
     return (
-        <AppBar position="absolute">
+        <AppBar position="absolute" open={open} drawerWidth={drawerWidth}>
             <Toolbar
                 sx={{
                     pr: '24px', // keep right padding when drawer closed
@@ -48,7 +47,7 @@ export function TopMenu() {
                     edge="start"
                     color="inherit"
                     aria-label="open drawer"
-
+                    onClick={toggleDrawer}
                     sx={{
                         marginRight: '36px',
                         ...(open && { display: 'none' }),
