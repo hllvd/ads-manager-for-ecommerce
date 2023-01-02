@@ -8,9 +8,16 @@ const createWebsite = async ({businessId, fields}) => {
 const getWebsites = async (businessId) => {
     return await websitePersistence.getAll(businessId);
 }
+
+const editWebsite = async (businessId, websiteId, fields) => {
+    const a = await websitePersistence.replace(businessId, websiteId, fields);
+    return a
+}
 const getWebsite = async (businessId, websiteId) => {
     const business = await websitePersistence.getAll(businessId)
-    return business.find( obj => obj.id == websiteId)
+    const result = business.find( obj => obj.id == websiteId)
+    if (!result) throw 'website id not found'
+    return result
 }
 const removeWebsite = async (businessId, websiteId) => {
     return await websitePersistence.remove(businessId, websiteId)
@@ -20,5 +27,6 @@ export default {
     createWebsite,
     getWebsites,
     getWebsite,
-    removeWebsite
+    removeWebsite,
+    editWebsite
 }

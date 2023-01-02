@@ -7,7 +7,7 @@ import { JSONFile } from 'lowdb/node'
 async function storageInstance(){
     // File path
     const __dirname = dirname(fileURLToPath(import.meta.url));
-    const file = join(__dirname, 'db.json') 
+    const file = join(__dirname, '../../storage/db.json') 
     // Configure lowdb to write to JSONFile
     const adapter = new JSONFile(file)
     const db = new Low(adapter)
@@ -17,13 +17,14 @@ async function storageInstance(){
     return await db;
 }
 
-function prepareSchema( obj, schemaName ){
+function prepareSchema( obj, schemaName, incrementId = true ){
     obj  = obj || {} 
     obj[schemaName]  = obj[schemaName] || {}
     obj[schemaName].data  = obj[schemaName].data || []
     obj[schemaName]._nextId  = (obj[schemaName]._nextId) ? obj[schemaName]._nextId : 0
     const id = obj[schemaName]._nextId
-    const _nextId = ++obj[schemaName]._nextId
+    let _nextId
+    if (incrementId) _nextId = ++obj[schemaName]._nextId
     return {obj, id, _nextId}
 }
 function incrementID(data){

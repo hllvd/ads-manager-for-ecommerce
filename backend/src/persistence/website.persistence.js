@@ -8,8 +8,22 @@ const createAppend = async(businessId, fields) => {
     if (businessIndex === -1) throw 'register not found'
     let business = await db.data.businesses.data[businessIndex]
     const {id, obj} = prepareSchema(business, 'website')
-    const currentObj = {...fields, bid:businessId, id}
+    const currentObj = {...fields, bid:Number(businessId), id}
     business.website.data.push(currentObj)
+    await db.write()
+    return currentObj
+}
+
+const replace = async(businessId, websiteId, fields) => {
+    const db = await storageInstance()
+    const businessIndex = db.data.businesses.data.findIndex( obj => obj.id == businessId);
+    if (businessIndex === -1) throw 'business not found'
+    let businessData = await db.data.businesses.data[businessIndex]
+    prepareSchema(businessData, 'website', false)
+    const currentObj = {...fields, bid:businessId, id:websiteId}
+    const websiteIndex = businessData.website.data.findIndex( obj => obj.id == websiteId)
+    if (websiteIndex === -1) throw 'website not found'
+    businessData.website.data[websiteIndex] = currentObj
     await db.write()
     return currentObj
 }
@@ -17,9 +31,9 @@ const createAppend = async(businessId, fields) => {
 const getAll = async (businessId) => {
     const db = await storageInstance()
     const businessIndex = db.data.businesses.data.findIndex( obj => obj.id == businessId);
-    if (businessIndex === -1) throw 'register not found'
+    if (businessIndex === -1) throw 'business not found'
     let business = await db.data.businesses.data[businessIndex]
-    const {id, obj} = prepareSchema(business, 'website')
+    prepareSchema(business, 'website')
     return await business.website.data
 }
 
@@ -37,5 +51,6 @@ const remove = async (businessId, websiteId) => {
 export default{
     createAppend,
     getAll,
-    remove
+    remove,
+    replace
 }
