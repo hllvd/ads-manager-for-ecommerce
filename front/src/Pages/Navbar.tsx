@@ -12,8 +12,6 @@ import { DashboardPage } from './Dashboard';
 
 const drawerWidth: number = 240;
 
-
-
 const mdTheme = createTheme();
 
 function DashboardContent() {
@@ -30,7 +28,7 @@ function DashboardContent() {
         <MenuLeft open={open} toggledrawer={toggleDrawer} drawerwidth={drawerWidth} />
         <MainContent>
           <DashboardPage />
-          <Copyright sx={{ pt: 4 }} teste="Moaee" />
+          <Copyright sx={{ pt: 4 }} />
         </MainContent>
       </Box>
     </ThemeProvider>
