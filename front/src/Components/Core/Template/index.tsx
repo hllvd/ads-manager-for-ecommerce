@@ -14,7 +14,7 @@ const drawerWidth: number = 240;
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function DashboardContent(props: { children: JSX.Element }) {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -27,7 +27,7 @@ function DashboardContent() {
                 <TopMenu open={open} toggledrawer={toggleDrawer} drawerwidth={drawerWidth} />
                 <MenuLeft open={open} toggledrawer={toggleDrawer} drawerwidth={drawerWidth} />
                 <MainContent>
-                    <DashboardPage />
+                    {props.children}
                     <Copyright sx={{ pt: 4 }} />
                 </MainContent>
             </Box>
@@ -35,6 +35,6 @@ function DashboardContent() {
     );
 }
 
-export default function Navbar() {
-    return <DashboardContent />;
+export default function Navbar(props: { children: JSX.Element }) {
+    return <DashboardContent>{props.children}</DashboardContent>;
 }
