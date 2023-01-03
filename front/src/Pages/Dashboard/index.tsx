@@ -1,9 +1,9 @@
 
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Chart from '../../Components/Chart';
-import Deposits from '../../Components/Deposits';
-import Orders from '../../Components/Orders';
+import Chart from '../../Components/Shared/Chart';
+import Deposits from '../../Components/Shared/Deposits';
+import Orders from '../../Components/Shared/Orders';
 
 export const DashboardPage = () => {
     return (

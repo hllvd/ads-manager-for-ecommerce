@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Copyright } from '../Components/Copyright/Copyright';
+import { Copyright } from '../Components/Core/Copyright';
 import Box from '@mui/material/Box';
 
-import { TopMenu } from '../Components/Menu-top/TopMenu';
-import { MenuLeft } from '../Components/Menu-left/MenuLeft';
-import { MainContent } from '../Components/Main-content/MainContent';
+import { TopMenu } from '../Components/Core/Menu-top';
+import { MenuLeft } from '../Components/Core/Menu-left';
+import { MainContent } from '../Components/Core/Main-content';
 import { DashboardPage } from './Dashboard';
 
 
