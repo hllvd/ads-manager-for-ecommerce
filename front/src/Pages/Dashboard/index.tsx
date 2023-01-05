@@ -6,6 +6,8 @@ import Deposits from '../../Components/Shared/Deposits';
 import Orders from '../../Components/Shared/Orders';
 
 export const DashboardPage = () => {
+
+
     return (
         <Grid container spacing={3}>
             {/* Chart */}

@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import { useSelector } from 'react-redux';
 
 
 interface AppBarProps extends MuiAppBarProps {
@@ -33,9 +34,12 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 export const TopMenu = (props: any) => {
+    const UiState = useSelector((state: any) => state.ui.value)
     const open = props.open
     const toggleDrawer = props.toggledrawer
     const drawerWidth = props.drawerwidth
+
+
     return (
         <AppBar position="absolute" open={open} drawerwidth={drawerWidth}>
             <Toolbar
@@ -62,7 +66,7 @@ export const TopMenu = (props: any) => {
                     noWrap
                     sx={{ flexGrow: 1 }}
                 >
-                    Dashboard
+                    {UiState.dashboard.title}
                 </Typography>
                 <IconButton color="inherit">
                     <Badge badgeContent={4} color="secondary">
