@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './Components/Core/Template';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { DashboardPage } from './Pages/Dashboard';
+import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './Routers';
 
 

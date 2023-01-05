@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import { TopMenu } from '../Menu-top';
 import { MenuLeft } from '../Menu-left';
 import { MainContent } from '../Main-content';
-import { DashboardPage } from '../../../Pages/Dashboard';
 
 
 const drawerWidth: number = 240;
