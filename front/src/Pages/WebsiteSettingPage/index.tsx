@@ -6,15 +6,13 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 
-
-
-
 export const WebsiteSettingPage = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setTitle("Website settings"))
         dispatch(setNotificationCounter(4))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

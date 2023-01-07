@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import UiReducer, { middleWare } from './features/Ui.state'
+import UiReducer, { middleware } from './features/Ui.state'
 
 var store: any
 store = configureStore({
   reducer: {
     ui: UiReducer
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middleWare)
+  middleware
 });
 
 const root = ReactDOM.createRoot(

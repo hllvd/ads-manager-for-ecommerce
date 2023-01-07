@@ -28,9 +28,10 @@ export const UiSlice = createSlice({
 /** 
  * Middleware
  */
-export const middleWare = (store) => {
+export const middleWare1 = (store) => {
     return function (next) {
         return function (action) {
+            console.log("api", action)
             next(action)
         }
     }
@@ -38,5 +39,6 @@ export const middleWare = (store) => {
 
 
 
+export const middleware = getDefaultMiddleware => getDefaultMiddleware().concat(middleWare1)
 export const { setTitle, setNotificationCounter } = UiSlice.actions
 export default UiSlice.reducer
