@@ -1,7 +1,7 @@
 import './App.css';
-import Navbar from './Components/Core/Template';
+import Navbar from './components/core/Template';
 import { BrowserRouter } from 'react-router-dom';
-import { AppRoutes } from './Routers';
+import { AppRoutes } from './routers';
 
 
 function App() {

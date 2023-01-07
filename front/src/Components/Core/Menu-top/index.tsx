@@ -69,7 +69,7 @@ export const TopMenu = (props: any) => {
                     {UiState.dashboard.title}
                 </Typography>
                 <IconButton color="inherit">
-                    <Badge badgeContent={4} color="secondary">
+                    <Badge badgeContent={UiState.dashboard.notificationCounter} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>

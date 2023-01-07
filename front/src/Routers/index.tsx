@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import { DashboardPage } from '../Pages/Dashboard';
-import { WebsiteSettingPage } from '../Pages/WebsiteSettingPage';
+import { DashboardPage } from '../pages/Dashboard';
+import { WebsiteSettingPage } from '../pages/WebsiteSettingPage';
 
 export const AppRoutes = () => {
     return (

@@ -13,13 +13,23 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import HttptIcon from '@mui/icons-material/Http';
 
+
+
+const linkStyle = {
+  textDecoration: "none",
+  color: 'rgba(0, 0, 0, 0.75)'
+};
+
+
 export const mainListItems = (
   <React.Fragment>
     <ListItemButton>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <Link to="/" style={linkStyle}>
+        <ListItemText primary="Dashboard" />
+      </Link>
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
@@ -57,7 +67,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <HttptIcon />
       </ListItemIcon>
-      <Link to="/settings/website">
+      <Link to="/settings/website" style={linkStyle}>
         <ListItemText primary="Website" />
       </Link>
     </ListItemButton>
