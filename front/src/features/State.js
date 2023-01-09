@@ -1,13 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const stateObj = {
     ui: {
         dashboard: {
             title: 'Dashboard',
             notificationCounter: 0
         }
+    },
+    pages: {
+        settings: {
+            website: {
+                form: {
+                    name: "Beleza mista",
+                    description: "",
+                    url: "https://belezamista.com.br",
+                    clientId: "clientIDDDDD",
+                    clientSecret: "SCREEE"
+                }
+            }
+        }
     }
 }
+
+/*
+*
+    id: Number,
+    name: String,
+    description: String,
+    url : String,
+    clientId : String,
+    clientSecret: String,
+    websiteType: WebSiteType
+*/
+
 
 /** 
  * Actions
@@ -22,6 +48,10 @@ export const StateSlice = createSlice({
         setNotificationCounter: (state, action) => {
             state.value.ui.dashboard.notificationCounter = action.payload
         },
+        settingsWebsiteFormHandler: (state, action) => {
+            if (!!action.payload.submit) return
+            state.value.pages.settings.website.form[action.payload.key] = action.payload.value
+        }
 
     }
 })
@@ -30,10 +60,10 @@ export const StateSlice = createSlice({
 /** 
  * Middleware
  */
-export const middleWare1 = (store) => {
+export const formMiddleware = (store) => {
     return function (next) {
         return function (action) {
-            console.log("api", action, store.getState())
+            if (action.type.includes("FormHandle") && !!action.payload.submit) console.log('df')
             next(action)
         }
     }
@@ -41,6 +71,6 @@ export const middleWare1 = (store) => {
 
 
 
-export const middleware = getDefaultMiddleware => getDefaultMiddleware().concat(middleWare1)
-export const { setTitle, setNotificationCounter } = StateSlice.actions
+export const middleware = getDefaultMiddleware => getDefaultMiddleware().concat(formMiddleware)
+export const { setTitle, setNotificationCounter, settingsWebsiteFormHandler } = StateSlice.actions
 export default StateSlice.reducer
