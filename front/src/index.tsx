@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import UiReducer, { middleware } from './features/Ui.state'
+import UiReducer, { middleware } from './features/State'
 
 var store: any
 store = configureStore({

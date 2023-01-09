@@ -66,10 +66,10 @@ export const TopMenu = (props: any) => {
                     noWrap
                     sx={{ flexGrow: 1 }}
                 >
-                    {UiState.dashboard.title}
+                    {UiState.ui.dashboard.title}
                 </Typography>
                 <IconButton color="inherit">
-                    <Badge badgeContent={UiState.dashboard.notificationCounter} color="secondary">
+                    <Badge badgeContent={UiState.ui.dashboard.notificationCounter} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>

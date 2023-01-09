@@ -6,7 +6,7 @@ import Deposits from '../../components/shared/Deposits';
 import Orders from '../../components/shared/Orders';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { setTitle, setNotificationCounter } from '../../features/Ui.state';
+import { setTitle, setNotificationCounter } from '../../features/State';
 
 export const DashboardPage = () => {
     const dispatch = useDispatch();

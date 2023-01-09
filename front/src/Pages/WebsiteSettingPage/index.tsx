@@ -1,4 +1,4 @@
-import { setTitle, setNotificationCounter } from '../../features/Ui.state';
+import { setTitle, setNotificationCounter } from '../../features/State';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./styles.css";

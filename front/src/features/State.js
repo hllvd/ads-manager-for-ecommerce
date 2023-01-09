@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const uiObj = {
-    dashboard: {
-        title: 'Dashboard',
-        notificationCounter: 0
+const stateObj = {
+    ui: {
+        dashboard: {
+            title: 'Dashboard',
+            notificationCounter: 0
+        }
     }
 }
 
@@ -11,14 +13,14 @@ const uiObj = {
  * Actions
  */
 export const UiSlice = createSlice({
-    name: "ui",
-    initialState: { value: uiObj },
+    name: "state",
+    initialState: { value: stateObj },
     reducers: {
         setTitle: (state, action) => {
-            state.value.dashboard.title = action.payload
+            state.value.ui.dashboard.title = action.payload
         },
         setNotificationCounter: (state, action) => {
-            state.value.dashboard.notificationCounter = action.payload
+            state.value.ui.dashboard.notificationCounter = action.payload
         },
 
     }
