@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { clearNullProperties, formStateSuiter } from '../../helpers/misc.helpers';
+import { IFormData } from '../../models/FormData';
 
 export const WebsiteSettingPage = () => {
     const state = useSelector((state: any) => state.data.value)
@@ -13,7 +14,7 @@ export const WebsiteSettingPage = () => {
     const dispatch = useDispatch();
 
     const submitHandler = (data: Object) => {
-        const dataToBeSent = formStateSuiter(data, true)
+        const dataToBeSent: IFormData = formStateSuiter(data, true)
         dispatch(settingsWebsiteFormHandler(dataToBeSent))
     }
 
@@ -33,8 +34,8 @@ export const WebsiteSettingPage = () => {
                 noValidate
                 autoComplete="off"
                 onSubmit={(evt) => {
-                    const json = clearNullProperties(form)
                     evt.preventDefault();
+                    const json = clearNullProperties(form)
                     submitHandler(json)
                 }}
             >
