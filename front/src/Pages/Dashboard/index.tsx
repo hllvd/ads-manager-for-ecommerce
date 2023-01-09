@@ -4,9 +4,16 @@ import Paper from '@mui/material/Paper';
 import Chart from '../../components/shared/Chart';
 import Deposits from '../../components/shared/Deposits';
 import Orders from '../../components/shared/Orders';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { setTitle, setNotificationCounter } from '../../features/Ui.state';
 
 export const DashboardPage = () => {
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setTitle("Dashboard"))
+        dispatch(setNotificationCounter(0))
+    }, [dispatch])
 
     return (
         <Grid container spacing={3}>

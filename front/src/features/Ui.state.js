@@ -31,7 +31,7 @@ export const UiSlice = createSlice({
 export const middleWare1 = (store) => {
     return function (next) {
         return function (action) {
-            console.log("api", action)
+            console.log("api", action, store.getState())
             next(action)
         }
     }

@@ -12,8 +12,7 @@ export const WebsiteSettingPage = () => {
     useEffect(() => {
         dispatch(setTitle("Website settings"))
         dispatch(setNotificationCounter(4))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [dispatch])
 
     return (
 
