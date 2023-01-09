@@ -12,7 +12,7 @@ const stateObj = {
 /** 
  * Actions
  */
-export const UiSlice = createSlice({
+export const StateSlice = createSlice({
     name: "state",
     initialState: { value: stateObj },
     reducers: {
@@ -42,5 +42,5 @@ export const middleWare1 = (store) => {
 
 
 export const middleware = getDefaultMiddleware => getDefaultMiddleware().concat(middleWare1)
-export const { setTitle, setNotificationCounter } = UiSlice.actions
-export default UiSlice.reducer
+export const { setTitle, setNotificationCounter } = StateSlice.actions
+export default StateSlice.reducer

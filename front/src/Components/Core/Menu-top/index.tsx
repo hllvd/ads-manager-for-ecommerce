@@ -34,7 +34,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 export const TopMenu = (props: any) => {
-    const UiState = useSelector((state: any) => state.ui.value)
+    const state = useSelector((state: any) => state.data.value)
     const open = props.open
     const toggleDrawer = props.toggledrawer
     const drawerWidth = props.drawerwidth
@@ -66,10 +66,10 @@ export const TopMenu = (props: any) => {
                     noWrap
                     sx={{ flexGrow: 1 }}
                 >
-                    {UiState.ui.dashboard.title}
+                    {state.ui.dashboard.title}
                 </Typography>
                 <IconButton color="inherit">
-                    <Badge badgeContent={UiState.ui.dashboard.notificationCounter} color="secondary">
+                    <Badge badgeContent={state.ui.dashboard.notificationCounter} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
