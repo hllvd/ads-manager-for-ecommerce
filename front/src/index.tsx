@@ -2,17 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import StateReducer, { middleware } from './features/State'
+import { store } from './app/store';
 
-var store: any
-store = configureStore({
-  reducer: {
-    data: StateReducer
-  },
-  middleware
-});
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

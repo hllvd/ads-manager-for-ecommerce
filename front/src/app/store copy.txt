@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import websiteApi from "../api/website.api";
 
 
 const stateObj = {
@@ -60,13 +61,20 @@ export const StateSlice = createSlice({
 /** 
  * Middleware
  */
-export const formMiddleware = (store) => {
-    return function (next) {
-        return function (action) {
-            if (action.type.includes("FormHandle") && !!action.payload.submit) console.log('df')
-            next(action)
-        }
+export const formMiddleware = (store) => next => async action => {
+    console.log(action)
+    if (action.type.includes("FormHandle") && !!action.payload.submit) {
+        const response = await websiteApi.submitData(action.payload)
+        /**
+         * ToDo : save response into storage
+         */
+        console.log(action);
+        console.log(store.dispatch(setNotificationCounter(15)))
+        next(action)
+    } else {
+        next(action)
     }
+
 }
 
 

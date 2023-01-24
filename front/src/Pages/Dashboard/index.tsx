@@ -3,13 +3,14 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Chart from '../../components/shared/Chart';
 import Deposits from '../../components/shared/Deposits';
+import { useAppDispatch } from '../../app/hooks';
 import Orders from '../../components/shared/Orders';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { setTitle, setNotificationCounter } from '../../features/State';
+import { setTitle, setNotificationCounter } from '../../features/ui/ui-slice';
 
 export const DashboardPage = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(setTitle("Dashboard"))
         dispatch(setNotificationCounter(0))
