@@ -1,9 +1,11 @@
 import express from "express"
 import businessesRouter from "./src/routes/business.routes.js"
 import websiteRouter from "./src/routes/website.routes.js"
+import cors from 'cors'
 
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.param('bid', (req, res, next)=>{
     req.info = req.info || {}
