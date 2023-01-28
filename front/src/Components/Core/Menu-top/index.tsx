@@ -7,7 +7,6 @@ import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import { useSelector } from 'react-redux';
 import { useAppSelector } from '../../../app/hooks';
 
 

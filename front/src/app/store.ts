@@ -1,5 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
-import websiteApi from "../api/website.api";
 import { configureStore } from '@reduxjs/toolkit';
 import uiReducer from '../features/ui/ui-slice'
 

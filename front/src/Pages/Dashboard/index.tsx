@@ -13,7 +13,7 @@ export const DashboardPage = () => {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(setTitle("Dashboard"))
-        dispatch(setNotificationCounter(0))
+        dispatch(setNotificationCounter(3))
     }, [dispatch])
 
     return (

@@ -2,7 +2,7 @@ import { setTitle, setNotificationCounter } from '../../features/ui/ui-slice';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./styles.css";
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { clearNullProperties, formStateSuiter } from '../../helpers/misc.helpers';

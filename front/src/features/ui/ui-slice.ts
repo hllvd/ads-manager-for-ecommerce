@@ -11,7 +11,7 @@ interface UserInterfaceState {
 
 const initialState: UserInterfaceState = {
     dashboard: {
-        title: 'Dashboard',
+        title: 'Loading',
         notificationCounter: 0
     }
 }
@@ -21,10 +21,10 @@ const UISlice = createSlice({
     initialState,
     reducers: {
         setTitle: (state, action) => {
-            //state.dashboard.title = action.payload
+            state.dashboard.title = action.payload
         },
         setNotificationCounter: (state, action: PayloadAction<number>) => {
-            //state.dashboard.notificationCounter = action.payload
+            state.dashboard.notificationCounter = action.payload
         },
     }
 })
