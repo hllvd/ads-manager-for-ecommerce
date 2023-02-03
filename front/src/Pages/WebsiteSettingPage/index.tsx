@@ -1,4 +1,5 @@
 import { setTitle, setNotificationCounter } from '../../features/ui/ui-slice';
+import { setForm } from '../../features/forms/website-slices';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./styles.css";
@@ -8,67 +9,70 @@ import Button from '@mui/material/Button';
 import { clearNullProperties, formStateSuiter } from '../../helpers/misc.helpers';
 import { IFormData } from '../../models/FormData';
 
+
 export const WebsiteSettingPage = () => {
-    return <p>teste</p>
+    let state = useAppSelector(state => state.forms.website)
+    type stateType = typeof state;
+    const dispatch = useAppDispatch();
+
+    const saveStateHandler = (obj: object) => {
+        console.log(state)
+        let objResult = { ...state, ...obj }
+        dispatch(setForm(objResult))
+    }
+    const submitHandler = (data: Object, formEl: Object) => {
+        const dataToBeSent: IFormData = formStateSuiter(data, { submit: true, formEl })
+        console.log(data)
+        //dispatch(settingsWebsiteFormHandler(dataToBeSent))
+    }
+
+    useEffect(() => {
+        dispatch(setTitle("Website settings"))
+        dispatch(setNotificationCounter(4))
+    }, [dispatch])
+
+    return (
+        <div>
+            <h1>Add new website</h1>
+            <Box
+                component="form"
+                sx={{ m: 1, width: '100%' }}
+                noValidate
+                autoComplete="off"
+                action="http://localhost:3000/business/0/website"
+                onSubmit={(evt) => {
+                    evt.preventDefault();
+                    const formEl = evt.target
+                    const json = clearNullProperties(state)
+                    submitHandler(json, formEl)
+                }}
+            >
+                <div className='div-line'>
+                    <TextField id="outlined-basic" label="Website Name" variant="outlined" name="name" value={state.name} required onChange={(evt) => {
+                        saveStateHandler({ name: evt.target.value })
+                    }} />
+                    <TextField id="outlined-basic" label="Description" variant="outlined" name="description" value={state.description} onChange={(evt) => {
+                        saveStateHandler({ description: evt.target.value })
+                    }} />
+                </div>
+                <div className='div-line'>
+                    <TextField id="outlined-basic" label="Url" variant="outlined" name="url" required value={state.url} onChange={(evt) => {
+                        saveStateHandler({ url: evt.target.value })
+                    }} />
+                    <TextField id="outlined-basic" label="websiteType" variant="outlined" name="websiteType" />
+                </div>
+                <div className='div-line'>
+                    <TextField id="outlined-basic" label="Client Id" variant="outlined" name="clientId" value={state.clientId} onChange={(evt) => {
+                        saveStateHandler({ clientId: evt.target.value })
+                    }} />
+                    <TextField id="outlined-basic" label="Client Secret" variant="outlined" name="clientSecret" value={state.clientSecret} onChange={(evt) => {
+                        saveStateHandler({ clientSecret: evt.target.value })
+                    }} />
+                </div>
+                <div className='div-line flex-right'>
+                    <Button variant="contained" type="submit">Save</Button>
+                </div>
+            </Box>
+        </div >
+    )
 }
-
-// export const WebsiteSettingPage = () => {
-//     const state = useSelector((state: any) => 'teste')
-//     const form = state.pages.settings.website.form;
-//     const dispatch = useDispatch();
-
-//     const submitHandler = (data: Object, formEl: Object) => {
-//         const dataToBeSent: IFormData = formStateSuiter(data, { submit: true, formEl })
-//         //dispatch(settingsWebsiteFormHandler(dataToBeSent))
-//     }
-
-//     useEffect(() => {
-//         dispatch(setTitle("Website settings"))
-//         dispatch(setNotificationCounter(4))
-//     }, [dispatch])
-
-//     return (
-//         <div>
-//             <h1>Add new website</h1>
-//             <Box
-//                 component="form"
-//                 sx={{ m: 1, width: '100%' }}
-//                 noValidate
-//                 autoComplete="off"
-//                 action="http://localhost:3000/business/0/website"
-//                 onSubmit={(evt) => {
-//                     evt.preventDefault();
-//                     const formEl = evt.target
-//                     const json = clearNullProperties(form)
-//                     submitHandler(json, formEl)
-//                 }}
-//             >
-//                 <div className='div-line'>
-//                     <TextField id="outlined-basic" label="Website Name" variant="outlined" name="name" required value={form.name} onChange={(evt) => {
-//                         // dispatch(settingsWebsiteFormHandler({ key: evt.target.name, value: evt.target.value }))
-//                     }} />
-//                     <TextField id="outlined-basic" label="Description" variant="outlined" name="description" value={form.description} onChange={(evt) => {
-//                         // dispatch(settingsWebsiteFormHandler({ key: evt.target.name, value: evt.target.value }))
-//                     }} />
-//                 </div>
-//                 <div className='div-line'>
-//                     <TextField id="outlined-basic" label="Url" variant="outlined" name="url" required value={form.url} onChange={(evt) => {
-//                         // dispatch(settingsWebsiteFormHandler({ key: evt.target.name, value: evt.target.value }))
-//                     }} />
-//                     <TextField id="outlined-basic" label="websiteType" variant="outlined" name="websiteType" />
-//                 </div>
-//                 <div className='div-line'>
-//                     <TextField id="outlined-basic" label="Client Id" variant="outlined" name="clientId" value={form.clientId} onChange={(evt) => {
-//                         // dispatch(settingsWebsiteFormHandler({ key: evt.target.name, value: evt.target.value }))
-//                     }} />
-//                     <TextField id="outlined-basic" label="Client Secret" variant="outlined" name="clientSecret" value={form.clientSecret} onChange={(evt) => {
-//                         // dispatch(settingsWebsiteFormHandler({ key: evt.target.name, value: evt.target.value }))
-//                     }} />
-//                 </div>
-//                 <div className='div-line flex-right'>
-//                     <Button variant="contained" type="submit">Save</Button>
-//                 </div>
-//             </Box>
-//         </div >
-//     )
-// }

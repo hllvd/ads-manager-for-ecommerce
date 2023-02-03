@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import uiReducer from '../features/ui/ui-slice'
+import formsReducer from '../features/forms/website-slices'
 
 
 
@@ -7,7 +8,8 @@ import uiReducer from '../features/ui/ui-slice'
 
 export const store = configureStore({
     reducer: {
-        ui: uiReducer
+        ui: uiReducer,
+        forms: formsReducer
     }
 });
 
