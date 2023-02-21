@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { clearNullProperties, formStateSuiter } from '../../helpers/misc.helpers';
 import { IFormData } from '../../models/FormData';
+import { useFetchWebsiteQuery } from '../../features/forms/website-slices';
 
 
 export const WebsiteSettingPage = () => {
@@ -15,8 +16,10 @@ export const WebsiteSettingPage = () => {
     type stateType = typeof state;
     const dispatch = useAppDispatch();
 
-    const saveStateHandler = (obj: object) => {
-        console.log(state)
+    const { data = [], isFetching } = useFetchWebsiteQuery();
+    console.log(data)
+
+    const saveStateHandler = (obj: Partial<stateType>) => {
         let objResult = { ...state, ...obj }
         dispatch(setForm(objResult))
     }

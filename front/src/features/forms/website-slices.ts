@@ -1,4 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
 interface WebsiteInterfaceState {
@@ -34,6 +36,27 @@ const FormSlice = createSlice({
         }
     }
 })
+
+
+
+
+export const apiSlice = createApi({
+    reducerPath: 'api',
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'http://localhost:3000',
+    }),
+    endpoints(builder) {
+        return {
+            fetchWebsite: builder.query<WebsiteInterfaceState[], object | void>({
+                query() {
+                    return `/business/0/website`;
+                },
+            }),
+        };
+    },
+});
+
+export const { useFetchWebsiteQuery } = apiSlice;
 
 export const { setForm } = FormSlice.actions;
 export default FormSlice.reducer;
