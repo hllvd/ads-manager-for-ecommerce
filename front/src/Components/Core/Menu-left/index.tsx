@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems, secondaryListItems } from '../../shared/listItems';
+import { mainListItems, secondaryListItems } from '../../Shared/listItems';
 
 let drawerWidth: number;
 
