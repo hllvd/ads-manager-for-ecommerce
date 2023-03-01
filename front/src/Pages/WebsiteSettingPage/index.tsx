@@ -8,17 +8,20 @@ import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { clearNullProperties, formStateSuiter } from '../../helpers/misc.helpers';
 import { IFormData } from '../../models/FormData';
-import { useFetchWebsiteQuery } from '../../features/forms/website-slices';
+
+import { useFetchProductsQuery } from '../../features/api/products-slice';
 
 
 export const WebsiteSettingPage = () => {
     let state = useAppSelector(state => state.forms.website)
+    //let products = useFetchProductsQuery();
+    //type productsType = typeof products;
     type stateType = typeof state;
     const dispatch = useAppDispatch();
 
-    const { data = [], isFetching } = useFetchWebsiteQuery();
-    console.log(data)
-
+    //const { data = [], isFetching } = useFetchWebsiteQuery();
+    const { data = [], isFetching } = useFetchProductsQuery();
+    console.log("data", data);
     const saveStateHandler = (obj: Partial<stateType>) => {
         let objResult = { ...state, ...obj }
         dispatch(setForm(objResult))
@@ -37,6 +40,7 @@ export const WebsiteSettingPage = () => {
     return (
         <div>
             <h1>Add new website</h1>
+
             <Box
                 component="form"
                 sx={{ m: 1, width: '100%' }}
