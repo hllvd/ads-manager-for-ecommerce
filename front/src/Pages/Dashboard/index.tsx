@@ -1,10 +1,10 @@
 
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Chart from '../../Components/Shared/Chart';
-import Deposits from '../../Components/Shared/Deposits';
+import Chart from '../../Components/shared/Chart';
+import Deposits from '../../Components/shared/Deposits';
 import { useAppDispatch } from '../../app/hooks';
-import Orders from '../../Components/Shared/Orders';
+import Orders from '../../Components/shared/Orders';
 // import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setTitle, setNotificationCounter } from '../../features/ui/ui-slice';
