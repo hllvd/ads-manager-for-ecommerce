@@ -1,16 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-interface Product {
-    id: string;
-    title: string;
-    status: 'active' | 'disabled'
-}
 interface Products {
     products: object[]
 }
-const initialState = {}
-
 
 export const productsSlice = createApi({
     reducerPath: 'product',
