@@ -6,8 +6,7 @@ import "./styles.css";
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { useEffect } from 'react';
 import Button from '@mui/material/Button';
-import { clearNullProperties, formStateSuiter } from '../../helpers/misc.helpers';
-import { IFormData } from '../../models/FormData';
+import { clearNullProperties } from '../../helpers/misc.helpers';
 
 import { useFetchProductsQuery } from '../../features/api/products-slice';
 
@@ -20,16 +19,14 @@ export const WebsiteSettingPage = () => {
     const dispatch = useAppDispatch();
 
     //const { data = [], isFetching } = useFetchWebsiteQuery();
-    const { data = [], isFetching } = useFetchProductsQuery();
+    const { data = [] } = useFetchProductsQuery();
     console.log("data", data);
     const saveStateHandler = (obj: Partial<stateType>) => {
         let objResult = { ...state, ...obj }
         dispatch(setForm(objResult))
     }
     const submitHandler = (data: Object, formEl: Object) => {
-        const dataToBeSent: IFormData = formStateSuiter(data, { submit: true, formEl })
         console.log(data)
-        //dispatch(settingsWebsiteFormHandler(dataToBeSent))
     }
 
     useEffect(() => {
